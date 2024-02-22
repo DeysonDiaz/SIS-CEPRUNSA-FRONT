@@ -1,9 +1,10 @@
-import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
 export default function Create_course() {
-    const location = useLocation();
+    //const location = useLocation();
+    const navigate = useNavigate();
     const [courseName, setCourseName] = useState("");
 
     const handleSubmit = async(e) => {
@@ -14,6 +15,8 @@ export default function Create_course() {
         nombre: courseName,
       })
       console.log(response.data)
+        //alert('Course created successfully')
+        navigate("/list-course")
     } catch (error) {
         console.error(error)
         }
